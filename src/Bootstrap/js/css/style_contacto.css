@@ -1,0 +1,102 @@
+body {
+    font-family: 'Pomperrier', sans-serif;
+       background-color: #e9cd31;
+       margin: 0;
+       padding: 0;
+   }
+   body, div, form, nav, ul, li, img, p, h1, input, section {
+       border-radius: 10px;
+   }
+   nav .container mb-2{
+       background-color: #e9a91f;
+}
+section nav {
+   font-family: 'Footlight MT Light', sans-serif;
+   padding: 0%;
+   background-color: #e9a91f;
+   margin: 0%;
+   text-align: center;
+}
+
+   nav ul li img{
+       width: 60px;
+       height: 60px;
+   }
+   nav ul li:hover {
+       background-color: #e9cd31; /* Cambia el color a tu preferencia */
+       color: #10539e; /* Cambia el color del texto a tu preferencia */
+   }
+   nav  .nav-item {
+       list-style-type: none; /* Elimina los puntos de la lista */
+       display: inline-block; /* Muestra los elementos en línea */
+       margin-right: 10px; /* Espaciado entre elementos de la lista */
+   }
+
+   nav ul {
+       list-style-type: none;
+       display: flex;
+   }
+
+   nav li {
+       margin-right: 15px;
+   }
+
+   .banner {
+       width: 100%;
+   }
+
+   h1 {
+       text-align: center;
+       font-family: 'Footlight MT Light', sans-serif;
+    }
+
+   .ver-mas {
+       text-align: center;
+   }
+   .text-over-banner {
+    position: absolute;
+    top: 50%; /* Ajusta la posición vertical del texto */
+    left: 60%; /* Ajusta la posición horizontal del texto */
+    transform: translate(-50%, -50%); /* Centra el texto en relación al 50% del ancho y alto del contenedor */
+    text-align: justify; /* Alinea el texto al centro */
+    color: rgb(0, 0, 0); /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+}
+.Caja2{
+    position: absolute;
+    top: 50%; /* Ajusta la posición vertical del texto */
+    left: 60%; /* Ajusta la posición horizontal del texto */
+    transform: translate(-85%, -50%); /* Centra el texto en relación al 50% del ancho y alto del contenedor */
+    text-align: justify; /* Alinea el texto al centro */
+    color: rgb(0, 0, 0); /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       margin-top: 20px;
+   }
+
+   table img {
+       width: 25%;
+   }
+   h6{
+    font-family: 'Footlight MT Light', sans-serif;
+    font-size: 12px;
+   }
+
+   section {
+       background-color: #e9a91f;
+       padding: 20px;
+       text-align: center;
+   }
+   #Pie_p {
+    background-image: url(/img/bb/2.jpg);
+   }
+   td{
+    vertical-align: text-top;
+}
+   p{
+       font-family: 'Footlight MT Light', sans-serif;
+   }

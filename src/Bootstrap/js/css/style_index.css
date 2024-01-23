@@ -1,0 +1,78 @@
+ body {
+         font-family: 'Pomperrier', sans-serif;
+            background-color: #e9cd31;
+            margin: 0;
+            padding: 0;
+        }
+        body, div, form, nav, ul, li, img, p, h1, input, section {
+            border-radius: 10px;
+        }
+        nav .container mb-2{
+            background-color: #e9a91f;
+    }
+    section nav {
+        font-family: 'Footlight MT Light', sans-serif;
+        padding: 0%;
+        background-color: #e9a91f;
+        margin: 0%;
+        text-align: center;
+    }
+
+        nav ul li img{
+            width: 60px;
+            height: 60px;
+        }
+        nav ul li:hover {
+            background-color: #e9cd31; /* Cambia el color a tu preferencia */
+            color: #10539e; /* Cambia el color del texto a tu preferencia */
+        }
+        nav  .nav-item {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            display: inline-block; /* Muestra los elementos en línea */
+            margin-right: 10px; /* Espaciado entre elementos de la lista */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 15px;
+        }
+
+        .banner {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Pomperrier', sans-serif;
+        }
+
+        .ver-mas {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table img {
+            width: 25%;
+        }
+
+        section {
+            background-color: #e9a91f;
+            padding: 20px;
+            text-align: center;
+        }
+        p{
+            font-family: 'Footlight MT Light', sans-serif;
+        }
+        section footer{
+            font-family: 'Footlight MT Light', sans-serif;
+            text-align: center;
+        }

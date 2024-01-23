@@ -1,0 +1,106 @@
+body {
+    background-color: #a89210; /* Dorado */
+    border-radius: 6px;
+}
+
+body, div, form, nav, ul, li, img, p, h1, input, section {
+    border-radius: 6px;
+}
+
+.navbar {
+    background-color: #271591; /* Azul rey */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    background-color: #a89210; /* Cambia al color dorado al pasar el cursor */
+    transition: background-color 0.3s ease; /* Añade una transición suave */
+    border-radius: 6px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+}
+
+.banner-container {
+    position: relative;
+}
+
+.textoBanner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d3b717;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    /* Puedes ajustar más estilos según tus necesidades */
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+/* Agrega estilos para los banners con efecto de volteo */
+.Caja {
+    position:relative;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.Caja img {
+    max-width: 180px; /* Máximo ancho de 80 píxeles */
+    height: 250px;   /* Altura de 360 píxeles */
+    width: auto;     /* Para mantener la proporción de la imagen */
+    transition: transform 0.5s;
+}
+
+.Caja:hover img {
+    transform: rotateY(180deg);
+}
+
+.Caja .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+}
+
+.Caja:hover .info {
+    transform: rotateY(0deg);
+    background-color: #d3b717;
+    border-radius: 6px;
+}
+.texto-sobre-imagen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0; /* Hace que el texto sea invisible inicialmente */
+    transition: opacity 0.5s;
+}
+.Caja:hover .texto-sobre-imagen {
+    opacity: 1; /* Hace que el texto sea visible al hacer hover */
+}
+.tr td{
+    justify-content: center;
+}
