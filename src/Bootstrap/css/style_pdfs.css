@@ -1,0 +1,145 @@
+/* Reiniciar estilos */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    text-align: justify;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Open Sans','Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+
+table {
+    background-color: #d3b717;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #00000000;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.table-responsive {
+    flex: 3;
+    overflow-x: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+div {
+    color: #5a454500;
+    padding: 20px 10px 20px 40px;
+    margin: 10px;
+    border: 1px solid #370bd3;
+    background-color: #d3b717;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.089);
+}
+
+ul li {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    height: 60px;
+}
+
+ul li a {
+    height: 60px;
+    background-color: #a89210;
+    display: block;
+    border-left: 10px solid rgb(8, 96, 179);
+    border-right: 5px solid rgb(144, 253, 111);
+    padding-left: 15px;
+    text-decoration: none;
+    color: #bfe1f1;
+}
+
+ul li a:hover {
+    margin-left: 10px;
+    color: #070707;
+    background-color: #1535aa;
+    box-shadow: 10px 10px 20px #a89210;
+    transform: rotate(4deg);
+    -moz-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+}
+
+/* Estilos para el contenido principal */
+.content {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Estilos para botones */
+.btn {
+    background-color: #271591;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #a89210;
+}
+
+/* Estilos para la tabla */
+.table {
+    background-color: #ffffff;
+    color: #271591;
+    border: 1px solid #271591;
+}
+
+/* Estilos para la tabla responsiva */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Estilos para los contenedores */
+.container {
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+/* Estilos para las columnas */
+.col {
+    padding: 0 15px;
+}
+
+/* Estilos para las filas */
+.row {
+    margin: 0 -15px;
+}
+
+/* Estilos responsivos */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+    }
+}

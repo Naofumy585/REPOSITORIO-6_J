@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="es-MEX">
+<html lang="es-MX">
 <head>
+
+    <link rel="icon" href="./src/controlador/ControlUtilerias/img/Unach.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
-    <link rel="stylesheet" href="src/Bootstrap/css/style_index.css">
-    <link rel="stylesheet" href="src/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/Bootstrap/css/style_index.css">
+    <link rel="stylesheet" href="./src/Bootstrap/css/bootstrap.min.css">
     <title>Repositorio 6°J</title>
 </head>
 <body>
 
     <div>
         <form>
+            <header>
             <section>
                 <nav class="navbar navbar-expand-lg navbar-light static-top">
                     <ul class="navbar-nav ml-auto" class="nav justify-content-end">
@@ -21,37 +24,129 @@
                         <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
                         <li class="nav-item"><a class="nav-link disable" href="#" tabindex="-1" aria-disabled="true">Contacto</a></li>
                     </ul>
-                </nav>
+                </nav><br>
+                <div class="text-center">
+                <h1>FACULTAD DE CONTADURIA Y ADMNINISTRACION CAMPUS I</h1>
+                </div><br>
             </section>
-            <section id="Tamaños">
-                <img src="src/img/RPDG.jpg" alt="Banner" class="banner img-fluid mb-4">
-                <div class="textoBanner">Repositorio 6_J
-                    <p><b>Materia :</b>Derecho Informatico</p>
-                    <p><b>Profesor :</b>Hector Nuricumbo Castro Martinez</p>
-                    <p><b>Alumno :</b>Charly Aquino Vazquez</p>
+            </header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col text-center">
+                        </div>
+                        <div class="col">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1500"> <!-- Aquí agregamos los atributos data-bs-ride y data-bs-interval -->
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="src/img/RPDG1.svg" alt="Banner">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="src/img/RPDG2.svg" alt="Banner">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="src/img/RPDG3.svg" alt="Banner">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                        </div>
+                    </div>
                 </div>
-                <!-- Tabla con espacio para 4 imágenes -->
-                <div class="Img-content row">
-                    <div class="Caja col-md-4">
-                        <img src="src/img/Libro.png" alt="Producto 1" class="img-fluid">
-                        <div class="info">
-                            <p><b>Ciberseguridad</b> By <b>#</b></p>
+                <section id="Tamaños">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="Caja">
+                                    <a href="./src/vistas/PDF.php" class="card-link">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="./src/img/Libro.svg" alt="Producto 1" class="img-fluid">
+                                                    </td>
+                                                    <td>
+                                                        <div class="card-content">
+                                                            <h5 class="card-title"><b>Servicios informaticos y Entorno laboral</b></h5>
+                                                            <p class="card-text"> <b>Daniel Cordova Herrera</b></p>
+                                                        </div>
+                                                        <div class="card-text-hover">
+                                                            <h5><b>Servicios informaticos y Entorno laboral</b></h5>
+                                                            <p class="card-text" style="text-align: justify;"> El ensayo remarca la importancia que tiene para las partes firmantes, el incluir una cláusula de propiedad intelectual en
+                                                            un contrato informático.</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="Caja">
+                                    <a href="./src/vistas/PFD.php" class="card-link">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="src/img/Libro.svg" alt="Producto 2" class="img-fluid">
+                                                    </td>
+                                                    <td>
+                                                        <div class="card-content">
+                                                            <h5 class="card-title"><b>Redes y enrutadores</b></h5>
+                                                            <p class="card-text">By <b>#</b></p>
+                                                        </div>
+                                                        <div class="card-text-hover">
+                                                            <p class="card-text">Otra reseña aquí...</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="Caja">
+                                    <a href="./src/vistas/PFD.php" class="card-link">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="src/img/Libro.svg" alt="Producto 3" class="img-fluid">
+                                                    </td>
+                                                    <td>
+                                                        <div class="card-content">
+                                                            <h5 class="card-title"><b>Derechos informaticos</b></h5>
+                                                            <p class="card-text">By <b>Nuricumbo</b></p>
+                                                        </div>
+                                                        <div class="card-text-hover">
+                                                            <p class="card-text">Otra reseña aquí...</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="Caja col-md-4">
-                        <img src="src/img/Libro.png" alt="Producto 2" class="img-fluid">
-                        <div class="info">
-                            <p><b>Redes y enrutadores</b> By <b>#</b></p>
-                        </div>
-                    </div>
-                    <div class="Caja col-md-4">
-                        <img src="src/img/Libro.png" alt="Producto 3" class="img-fluid">
-                        <div class="info">
-                            <p><b>Derechos informaticos </b> By <b>Nuricumbo</b></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+
             <!-- Sección de redes sociales e información -->
             <section class="row">
                 <div style="background-color: #271591;" >
@@ -74,8 +169,9 @@
         </form>
     </div>
     <!-- Agrega la referencia al script de Bootstrap al final del body -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./src/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/Bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
