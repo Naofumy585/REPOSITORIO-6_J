@@ -1,0 +1,300 @@
+body {
+    font-family: 'Pomperrier', sans-serif;
+    background-color: #e9cd31;
+    margin: 0;
+    padding: 0;
+}
+
+body, div, form, nav, ul, li, img, p, h1, input, section {
+    border-radius: 10px;
+}
+
+nav .container mb-2 {
+    background-color: #e9a91f;
+}
+
+section nav {
+    font-family: 'Footlight MT Light', sans-serif;
+    padding: 0%;
+    background-color: #e9a91f;
+    margin: 0%;
+    text-align: center;
+}
+
+nav ul li img {
+    width: 60px;
+    height: 60px;
+}
+
+nav ul li:hover {
+    background-color: #e9cd31;
+    color: #10539e;
+}
+
+nav .nav-item {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 15px;
+}
+
+.banner {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Pomperrier', sans-serif;
+}
+
+.ver-mas {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table img {
+    width: 25%;
+}
+
+section {
+    background-color: #e9a91f;
+    padding: 20px;
+    text-align: center;
+}
+
+p {
+    font-family: 'Footlight MT Light', sans-serif;
+}
+
+section footer {
+    font-family: 'Footlight MT Light', sans-serif;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    nav ul li img {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Footlight MT Light', sans-serif;
+    }
+
+    .ver-mas {
+        text-align: center;
+    }
+
+    .text-over-banner, .Caja2 {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        text-align: justify;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table img {
+        width: 25%;
+    }
+
+    h6 {
+        font-family: 'Footlight MT Light', sans-serif;
+        font-size: 12px;
+    }
+
+    section {
+        background-color: #e9a91f;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #Pie_p {
+        background-image: url(/img/bb/2.jpg);
+    }
+
+    td {
+        vertical-align: text-top;
+    }
+
+    p {
+        font-family: 'Footlight MT Light', sans-serif;
+        text-align: center;
+    }
+
+    div span {
+        text-align: center;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+.container {
+    margin: 30px auto;
+}
+
+.container .card {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #e9a91f;
+    border-radius: 0px;
+}
+
+body {
+    background: #e9a91f
+}
+
+
+
+.btn.btn-primary {
+    background-color: #e9a91f;
+    color: black;
+    box-shadow: none;
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.btn.btn-primary:focus {
+    box-shadow: none;
+}
+
+.container .card .img-box {
+    width: 80px;
+    height: 50px;
+}
+
+.container .card img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.container .card .number {
+    font-size: 24px;
+}
+
+.container .card-body .btn.btn-primary .fab.fa-cc-paypal {
+    font-size: 32px;
+    color: #3333f7;
+}
+
+.fab.fa-cc-amex {
+    color: #1c6acf;
+    font-size: 32px;
+}
+
+.fab.fa-cc-mastercard {
+    font-size: 32px;
+    color: red;
+}
+
+.fab.fa-cc-discover {
+    font-size: 32px;
+    color: orange;
+}
+
+.c-green {
+    color: green;
+}
+
+.box {
+    height: 40px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9a91f;
+}
+
+.btn.btn-primary.payment {
+    background-color: #1c6acf;
+    color: #e9a91f;
+    border-radius: 0px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+
+.form__div {
+    height: 50px;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.form-control {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    border: 1px solid #e9a91f;
+    border-radius: 0;
+    outline: none;
+    padding: 2px;
+    background: none;
+    z-index: 1;
+    box-shadow: none;
+}
+
+.form__label {
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    background-color: #fff;
+    color: #80868B;
+    font-size: 16px;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+.form-control:focus+.form__label {
+    top: -8px;
+    left: 12px;
+    color: #1A73E8;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form-control:not(:placeholder-shown).form-control:not(:focus)+.form__label {
+    top: -8px;
+    left: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.form-control:focus {
+    border: 1.5px solid #1A73E8;
+    box-shadow: none;
+}

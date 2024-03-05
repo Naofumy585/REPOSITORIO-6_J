@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
     <link rel="stylesheet" href="../Bootstrap/css/style_pdfs.css">
+    <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css">
     <title>Repositorio 6J</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,6 +28,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">PODCAST</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="./Contratos/Contrato.php">Generar Contrato</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
