@@ -1,8 +1,7 @@
-body {
-    background-color: #a89210; /* Dorado */
-    border-radius: 6px;
-}
 
+body, div, form, nav, ul, li, img, p, h1, input, section {
+    border-radius: 5px;
+}
 .carousel-item img {
     height: 350px; /* Altura deseada */
     width: 950px; /* Ocupa todo el ancho disponible */
@@ -12,7 +11,31 @@ body {
 .navbar {
     background-color: #271591; /* Azul rey */
 }
+nav ul li:hover {
+    background-color: #e9cd31;
+    color: #10539e;
+}
+.btn {
+    background-color: #28a745; /* Color de fondo del botón de búsqueda */
+    color: #fff; /* Color del texto del botón de búsqueda */
+    border: none; /* Quita el borde del botón */
+}
 
+.btn:hover {
+    background-color: #218838; /* Color de fondo del botón al pasar el mouse */
+}
+.navbar-form {
+    display: flex;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group-append {
+    margin-left: 10px; /* Espacio entre el campo de búsqueda y el botón */
+}
 .navbar-light .navbar-nav .nav-link:hover {
     background-color: #a89210; /* Cambia al color dorado al pasar el cursor */
     transition: background-color 0.3s ease; /* Añade una transición suave */
@@ -65,7 +88,14 @@ body {
 .Caja:hover img {
     transform: rotateY(180deg);
 }
+.btn-primary:hover {
+    background-color: #e2cd11; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+    border-color: #e2cd11; /* Cambia el color del borde al pasar el cursor sobre el botón */
+}
 
+.btn-primary:hover {
+    color: #d1be13; /* Cambia el color del texto al pasar el cursor sobre el botón */
+}
 .Caja .card-content {
     position: absolute;
     top: 0;
@@ -102,4 +132,67 @@ body {
 
 h1 {
     background-color: #271591;
+}
+@media (max-width: 767px) {
+    nav ul li img {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Footlight MT Light', sans-serif;
+    }
+
+    .ver-mas {
+        text-align: center;
+    }
+
+    .text-over-banner, .Caja2 {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        text-align: justify;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table img {
+        width: 25%;
+    }
+
+    h6 {
+        font-family: 'Footlight MT Light', sans-serif;
+        font-size: 12px;
+    }
+
+    section {
+        background-color: #e9a91f;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #Pie_p {
+        background-image: url(/img/bb/2.jpg);
+    }
+
+    td {
+        vertical-align: text-top;
+    }
+
+    p {
+        font-family: 'Footlight MT Light', sans-serif;
+        text-align: center;
+    }
+
+    div span {
+        text-align: center;
+    }
 }

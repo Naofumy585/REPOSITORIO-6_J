@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
-    <link rel="stylesheet" href="../Bootstrap/css/style_pdfs.css">
-    <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Bootstrap/css/style_index.css">
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
     <title>Repositorio 6J</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,31 +15,22 @@
         <main class="content">
             <!-- Contenido principal -->
             <div class="table-container">
-                <table>
-                    <tr>
-                        <td>
-                            <nav class="sidebar">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="../../index.php">Inicio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">OTROS TEMAS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">PODCAST</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="./Contratos/Contrato.php">Generar Contrato</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </td>
-                    <tr>
-                </table>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto nav justify-content-end">
+                            <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">OTROS TEMAS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">PODCAST</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="./Contratos/Contrato.php">Generar Contrato</a></li>
+                            <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>

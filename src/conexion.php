@@ -1,17 +1,15 @@
 <?php
-class Conexion extends PDO{  //Conexion segura
-    private $hostBd='localhost';
-    private $nombreBd='repositoriounach';
-    private $usuarioBd='root';
-    private $passwordBd='';
-    public function __construct()
-    {
-        try{  //validar 
-            parent::__construct('mysql:host='.$this->hostBd.';dbname='.$this->
-            nombreBd.';charset=utf8',$this->usuarioBd,$this->passwordBd, array(PDO::
-            ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        }catch(Exception $e) {
-            echo 'Error: '. $e->getMessage();
+class Conexion extends PDO {
+    private $hostBd = 'localhost';
+    private $nombreBd = 'repositoriounach';
+    private $usuarioBd = 'root';
+    private $passwordBd = '';
+
+    public function __construct() {
+        try {
+            parent::__construct('mysql:host=' . $this->hostBd . ';dbname=' . $this->nombreBd . ';charset=utf8', $this->usuarioBd, $this->passwordBd, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
             exit;
         }
     }
