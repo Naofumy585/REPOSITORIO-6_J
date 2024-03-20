@@ -13,13 +13,13 @@
 <nav class="navbar navbar-expand-lg navbar-light static-top">
     <ul class="navbar-nav ml-auto">
         <li class="navbar-brand"><p><b>RP </b>6</p></li>
-        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-        <li class="nav-item"><a class="nav-link disable" href="#" tabindex="-1" aria-disabled="true">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link disable" href="buscar.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
         <!-- Nuevo elemento para el formulario de búsqueda -->
         <li class="nav-item ml-auto">
-            <form class="navbar-form ml-auto" action="./src/vistas/buscar.php" method="GET">
+            <form class="navbar-form ml-auto" action="buscar.php" method="POST">
                 <div class="input-group">
                      <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
                         <div class="input-group-append">
@@ -66,6 +66,28 @@ foreach ($archivos as $archivo) {
 // Fin de la tabla
 echo '</table>';
 ?>
+ <!-- Aquí se mostrarán los resultados de la búsqueda -->
+ <div class="container">
+        <?php
+        // Recuperar los resultados de la búsqueda
+        $resultados = isset($_GET['resultados']) ? json_decode($_GET['resultados'], true) : [];
 
+        // Mostrar los resultados
+        foreach ($resultados as $resultado) {
+            // Aquí puedes imprimir los detalles de cada resultado, por ejemplo:
+            echo '<div class="card">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $resultado['Nombre'] . '</h5>';
+            echo '<p class="card-text">' . $resultado['DireccionM'] . '</p>';
+            echo '<p class="card-text">' . $resultado['Genero'] . '</p>';
+            echo '<p class="card-text">' . $resultado['autor'] . '</p>';
+            echo '<p class="card-text">' . $resultado['FechaC'] . '</p>';
+            echo '<p class="card-text">' . $resultado['PalabraClave'] . '</p>';
+            echo '<p class="card-text">' . $resultado['URL'] . '</p>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+    </div>
 </body>
 </html>

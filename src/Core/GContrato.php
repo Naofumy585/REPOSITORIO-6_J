@@ -68,7 +68,7 @@ class ContratoPDF {
     
             // Mostrar mensaje de éxito
             echo '<script>alert("PDF generado y guardado correctamente.");</script>';
-            header('Location: ../../index.php');
+            header('Location: ../../index.php'); // Redireccionar a la página principal
             exit; // Asegúrate de que no haya más salida después de redirigir
         } else {
             echo "No se encontraron datos en la tabla datos_pdf";
@@ -140,37 +140,53 @@ class ContratoPDF {
         // Agregar el contenido al PDF
         $pdf->MultiCell(0, 10, utf8_decode($contenido));
     }
-    public function Buscar_pdf($query) {
-        // Directorio donde se encuentran los archivos PDF
-        $directorio = '../vistas/Contratos/';
-    
-        // Escanea el directorio en busca de archivos PDF
-        $archivos = scandir($directorio, SCANDIR_SORT_DESCENDING);
-    
-        // Array para almacenar los nombres de los archivos que contienen la palabra clave
-        $resultados = array();
-    
-        // Itera sobre los archivos encontrados en el directorio
-        foreach ($archivos as $archivo) {
-            // Verifica si el archivo es un PDF
-            if (pathinfo($archivo, PATHINFO_EXTENSION) === 'pdf') {
-                // Extrae los primeros 10 caracteres del nombre del archivo (aproximadamente)
-                $nombreCliente = substr($archivo, 8, 10);
-    
-                // Verifica si los primeros 10 caracteres del nombre del cliente coinciden con la consulta
-                if (stripos($nombreCliente, $query) !== false) {
-                    // Si hay coincidencia, agrega el nombre del archivo a los resultados
-                    $resultados[] = $archivo;
-                }
-            }
-        }
-    
-        // Redirecciona a la página de búsqueda con los resultados
-        header('Location: ../vistas/buscar.php?resultados=' . urlencode(implode(',', $resultados)));
-        exit;
-    }
+    public function Buscar($query) {
+         // Preparar la consulta SQL para buscar contratos
+    $sqlContratos = "SELECT * FROM datos_pdf
+    WHERE LOWER(nombre_cliente) LIKE LOWER(:query)";
 
+    // Preparar la consulta SQL para buscar audios
+    $sqlAudios = "SELECT * FROM T_podcastM
+    WHERE LOWER(Nombre) LIKE LOWER(:query)
+    OR LOWER(autor) LIKE LOWER(:query)
+    OR LOWER(Genero) LIKE LOWER(:query)
+    OR LOWER(PalabraClave) LIKE LOWER(:query)";
+    
+        // Obtener una instancia de la conexión
+        $conn = new Conexion();
+    
+        
+    try {
+        // Preparar la consulta de contratos con PDO
+        $stmtContratos = $conn->prepare($sqlContratos);
+        $stmtContratos->bindValue(':query', '%' . $query . '%');
+
+        // Ejecutar la consulta de contratos
+        $stmtContratos->execute();
+        $contratos = $stmtContratos->fetchAll(PDO::FETCH_ASSOC);
+
+        // Preparar la consulta de audios con PDO
+        $stmtAudios = $conn->prepare($sqlAudios);
+        $stmtAudios->bindValue(':query', '%' . $query . '%');
+
+        // Ejecutar la consulta de audios
+        $stmtAudios->execute();
+        $audios = $stmtAudios->fetchAll(PDO::FETCH_ASSOC);
+
+        // Combinar los resultados de contratos y audios
+        $resultados = array_merge($contratos, $audios);
+
+        // Redireccionar a la página de búsqueda con los resultados
+        header('Location: ../vistas/buscar.php?resultados=' . urlencode(json_encode($resultados)));
+        exit;
+    } catch (PDOException $e) {
+        // Manejar errores de base de datos
+        echo "Error al ejecutar la consulta: " . $e->getMessage();
+    }
+    }    
 }
+
+
 
 // Instanciar la clase ContratoPDF
 $contratoPDF = new ContratoPDF();
