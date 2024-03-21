@@ -140,50 +140,6 @@ class ContratoPDF {
         // Agregar el contenido al PDF
         $pdf->MultiCell(0, 10, utf8_decode($contenido));
     }
-    public function Buscar($query) {
-         // Preparar la consulta SQL para buscar contratos
-    $sqlContratos = "SELECT * FROM datos_pdf
-    WHERE LOWER(nombre_cliente) LIKE LOWER(:query)";
-
-    // Preparar la consulta SQL para buscar audios
-    $sqlAudios = "SELECT * FROM T_podcastM
-    WHERE LOWER(Nombre) LIKE LOWER(:query)
-    OR LOWER(autor) LIKE LOWER(:query)
-    OR LOWER(Genero) LIKE LOWER(:query)
-    OR LOWER(PalabraClave) LIKE LOWER(:query)";
-    
-        // Obtener una instancia de la conexión
-        $conn = new Conexion();
-    
-        
-    try {
-        // Preparar la consulta de contratos con PDO
-        $stmtContratos = $conn->prepare($sqlContratos);
-        $stmtContratos->bindValue(':query', '%' . $query . '%');
-
-        // Ejecutar la consulta de contratos
-        $stmtContratos->execute();
-        $contratos = $stmtContratos->fetchAll(PDO::FETCH_ASSOC);
-
-        // Preparar la consulta de audios con PDO
-        $stmtAudios = $conn->prepare($sqlAudios);
-        $stmtAudios->bindValue(':query', '%' . $query . '%');
-
-        // Ejecutar la consulta de audios
-        $stmtAudios->execute();
-        $audios = $stmtAudios->fetchAll(PDO::FETCH_ASSOC);
-
-        // Combinar los resultados de contratos y audios
-        $resultados = array_merge($contratos, $audios);
-
-        // Redireccionar a la página de búsqueda con los resultados
-        header('Location: ../vistas/buscar.php?resultados=' . urlencode(json_encode($resultados)));
-        exit;
-    } catch (PDOException $e) {
-        // Manejar errores de base de datos
-        echo "Error al ejecutar la consulta: " . $e->getMessage();
-    }
-    }    
 }
 
 

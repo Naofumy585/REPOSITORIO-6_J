@@ -68,26 +68,54 @@ echo '</table>';
 ?>
  <!-- Aquí se mostrarán los resultados de la búsqueda -->
  <div class="container">
-        <?php
-        // Recuperar los resultados de la búsqueda
-        $resultados = isset($_GET['resultados']) ? json_decode($_GET['resultados'], true) : [];
+ <?php
+    require_once '../conexion.php'; // Reemplaza 'ruta_de_tu_archivo_de_conexion.php' con la ruta correcta
 
-        // Mostrar los resultados
+    // Recuperar la consulta de búsqueda del formulario
+    $query = isset($_POST['query']) ? $_POST['query'] : '';
+
+    // Preparar la consulta SQL para buscar en la tabla t_podcastm
+    $sql = "SELECT Nombre, Genero, Autor, PalabraClave, DireccionM FROM t_podcastm 
+            WHERE LOWER(Nombre) LIKE LOWER(:query)
+            OR LOWER(Autor) LIKE LOWER(:query)";
+
+    try {
+        // Obtener una instancia de la conexión
+        $conn = new Conexion();
+
+        // Preparar la consulta con PDO
+        $stmt = $conn->prepare($sql);
+
+        // Asignar valor al parámetro :query
+        $stmt->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
+
+        // Ejecutar la consulta
+        $stmt->execute();
+
+        // Obtener los resultados de la consulta
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Mostrar los resultados en forma de tarjetas
         foreach ($resultados as $resultado) {
-            // Aquí puedes imprimir los detalles de cada resultado, por ejemplo:
             echo '<div class="card">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $resultado['Nombre'] . '</h5>';
-            echo '<p class="card-text">' . $resultado['DireccionM'] . '</p>';
-            echo '<p class="card-text">' . $resultado['Genero'] . '</p>';
-            echo '<p class="card-text">' . $resultado['autor'] . '</p>';
-            echo '<p class="card-text">' . $resultado['FechaC'] . '</p>';
-            echo '<p class="card-text">' . $resultado['PalabraClave'] . '</p>';
-            echo '<p class="card-text">' . $resultado['URL'] . '</p>';
-            echo '</div>';
-            echo '</div>';
+            echo '<p class="card-text">Autor: ' . $resultado['Autor'] . '</p>';
+            // Agrega más campos según sea necesario (por ejemplo, Genero, FechaC, etc.)
+            echo '<div class="audio-container">';
+            echo '<audio controls>';
+            echo '<source src="' . $resultado['DireccionM'] . '" type="audio/mpeg">';
+            echo 'Tu navegador no soporta la reproducción de audio.';
+            echo '</audio>';
+            echo '</div>'; // Cierre de audio-container
+            echo '</div>'; // Cierre de card-body
+            echo '</div>'; // Cierre de card
         }
-        ?>
+    } catch (PDOException $e) {
+        // Manejar errores de base de datos
+        echo "Error al ejecutar la consulta: " . $e->getMessage();
+    }
+    ?>
     </div>
 </body>
 </html>
