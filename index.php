@@ -1,60 +1,3 @@
-<?php
-require_once './src/conexion.php'; // Asegúrate de tener la ruta correcta hacia tu archivo de conexión
-
-if (!empty($_POST['query'])) {
-    $aKeyword = explode(" ", $_POST['query']);
-    
-    // Construir la consulta inicial con el primer término de búsqueda
-    $query = "SELECT Nombre,Autor * FROM t_podcastm 
-              WHERE LOWER(Nombre) LIKE '%" . strtolower($aKeyword[0]) . "%' 
-              OR LOWER(Autor) LIKE '%" . strtolower($aKeyword[0]) . "%'";
-
-    // Agregar los términos de búsqueda adicionales si existen
-    for ($i = 1; $i < count($aKeyword); $i++) {
-        if (!empty($aKeyword[$i])) {
-            $query .= " OR LOWER(Nombre) LIKE '%" . strtolower($aKeyword[$i]) . "%' 
-                        OR LOWER(Autor) LIKE '%" . strtolower($aKeyword[$i]) . "%'";
-        }
-    }
-
-    try {
-        // Obtener una instancia de la conexión
-        $conexion = new Conexion();
-
-        // Preparar la consulta con PDO
-        $stmt = $conexion->prepare($query);
-
-        // Ejecutar la consulta
-        $stmt->execute();
-
-        // Obtener los resultados de la consulta
-        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Mostrar los resultados en tarjetas
-        foreach ($resultados as $audio) {
-            echo '<div class="col-md-6 col-lg-4">';
-            echo '<div class="card mb-4">';
-            echo '<h3 class="card-header">' . $audio['Nombre'] . '</h3>';
-            echo '<div class="card-body">';
-            echo '<p class="card-text">Autor: ' . $audio['Autor'] . '</p>';
-            echo '<p class="card-text">Fecha: ' . $audio['FechaC'] . '</p>';
-            echo '<div class="audio-container">';
-            echo '<audio controls>';
-            echo '<source src="' . $audio['DireccionM'] . '" type="audio/mpeg">';
-            echo 'Tu navegador no soporta la reproducción de audio.';
-            echo '</audio>';
-            echo '</div>'; // Cierre de audio-container
-            echo '</div>'; // Cierre de card-body
-            echo '</div>'; // Cierre de card
-            echo '</div>'; // Cierre de col-md-6
-        }
-    } catch (PDOException $e) {
-        // Manejar errores de base de datos
-        echo "Error al ejecutar la consulta: " . $e->getMessage();
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es-MX">
 <head>
@@ -70,19 +13,18 @@ if (!empty($_POST['query'])) {
 <body>
 
     <div>
-        <form>
             <header>
             <section>
             <nav class="navbar navbar-expand-lg navbar-light static-top">
                     <ul class="navbar-nav ml-auto">
                         <li class="navbar-brand"><p><b>RP </b>6</p></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="./src/vistas/Audioteca.php">Audioteca</a></li>
-                        <li class="nav-item"><a class="nav-link disable" href="./src/vistas/buscar.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
+                        <li class="nav-item"><a class="nav-link disable" href="./src/vistas/Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
                         <!-- Nuevo elemento para el formulario de búsqueda -->
                         <li class="nav-item ml-auto">
-                        <form class="navbar-form ml-auto" action="" method="POST">
+                        <form class="navbar-form ml-auto" action="./src/vistas/buscar.php" method="POST">
                             <div class="input-group">
                                 <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
                                 <div class="input-group-append">
@@ -234,7 +176,6 @@ if (!empty($_POST['query'])) {
                     </tr>
                 </div>
             </section>
-        </form>
     </div>
     <!-- Agrega la referencia al script de Bootstrap al final del body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

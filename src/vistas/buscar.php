@@ -1,80 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="icon" href="./src/controlador/ControlUtilerias/img/Unach.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
-    <link rel="stylesheet" href="../Bootstrap/css/style_index.css">
-    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
-    <title>Barra de busqueda</title>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light static-top">
-    <ul class="navbar-nav ml-auto">
-        <li class="navbar-brand"><p><b>RP </b>6</p></li>
-        <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-        <li class="nav-item"><a class="nav-link disable" href="buscar.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
-        <!-- Nuevo elemento para el formulario de búsqueda -->
-        <li class="nav-item ml-auto">
-            <form class="navbar-form ml-auto" action="buscar.php" method="POST">
-                <div class="input-group">
-                     <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        </div>
-                    </div>
-            </form>
-        </li>
-    </ul>
-</nav><br>
-    <?php
-require_once '../conexion.php'; // Reemplaza 'ruta_de_tu_archivo_de_conexion.php' con la ruta correcta
+<?php
+require_once '../conexion.php';
 
-// Crear una instancia de la clase Conexion
-$conexion = new Conexion();
+if(isset($_POST['query'])) {
+    $keyword = $_POST['query'];
 
-try {
-    // Obtener los nombres de los archivos de la base de datos
-    $stmt = $conexion->prepare("SELECT direccion FROM direccion_pdf");
-    $stmt->execute();
-    $archivos = $stmt->fetchAll(PDO::FETCH_COLUMN);
-} catch(PDOException $e) {
-    echo "Error al obtener los nombres de los archivos: " . $e->getMessage();
-}
+    // Aquí debes incluir tu lógica para buscar los resultados en la base de datos
+    // Reemplaza esta sección con tu código existente para obtener los resultados
 
-// Inicio de la tabla
-echo '<h1>Resultados de búsqueda</h1>';
-echo '<table border="1">';
-echo '<tr>';
-echo '<th>PDF</th>';
-echo '<th>Imprimir</th>';
-echo '</tr>';
-
-// Iterar sobre los nombres de los archivos
-foreach ($archivos as $archivo) {
-    // Obtener solo los últimos caracteres del nombre del archivo
-    $nombreCorto = substr($archivo, 9); // Omitir los primeros 8 caracteres
-    echo '<tr>';
-    echo '<td><img src="../img/pdf.svg" alt="PDF Icon" style="width: 30px; height: 30px;"> ' . $nombreCorto . '</td>';
-    echo '<td><a href="../vistas/Contratos/' . $archivo . '" target="_blank"><button class="btn btn-outline-success">Imprimir</button></a></td>';
-    echo '</tr>';
-}
-
-// Fin de la tabla
-echo '</table>';
-?>
- <!-- Aquí se mostrarán los resultados de la búsqueda -->
- <div class="container">
- <?php
-    require_once '../conexion.php'; // Reemplaza 'ruta_de_tu_archivo_de_conexion.php' con la ruta correcta
-
-    // Recuperar la consulta de búsqueda del formulario
-    $query = isset($_POST['query']) ? $_POST['query'] : '';
-
-    // Preparar la consulta SQL para buscar en la tabla t_podcastm
+    // Ejemplo de consulta SQL para buscar en la tabla t_podcastm
     $sql = "SELECT Nombre, Genero, Autor, PalabraClave, DireccionM FROM t_podcastm 
             WHERE LOWER(Nombre) LIKE LOWER(:query)
             OR LOWER(Autor) LIKE LOWER(:query)";
@@ -87,7 +20,7 @@ echo '</table>';
         $stmt = $conn->prepare($sql);
 
         // Asignar valor al parámetro :query
-        $stmt->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
+        $stmt->bindValue(':query', '%' . $keyword . '%', PDO::PARAM_STR);
 
         // Ejecutar la consulta
         $stmt->execute();
@@ -95,27 +28,92 @@ echo '</table>';
         // Obtener los resultados de la consulta
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Mostrar los resultados en forma de tarjetas
-        foreach ($resultados as $resultado) {
-            echo '<div class="card">';
-            echo '<div class="card-body">';
-            echo '<h5 class="card-title">' . $resultado['Nombre'] . '</h5>';
-            echo '<p class="card-text">Autor: ' . $resultado['Autor'] . '</p>';
-            // Agrega más campos según sea necesario (por ejemplo, Genero, FechaC, etc.)
-            echo '<div class="audio-container">';
-            echo '<audio controls>';
-            echo '<source src="' . $resultado['DireccionM'] . '" type="audio/mpeg">';
-            echo 'Tu navegador no soporta la reproducción de audio.';
-            echo '</audio>';
-            echo '</div>'; // Cierre de audio-container
-            echo '</div>'; // Cierre de card-body
-            echo '</div>'; // Cierre de card
+        if ($resultados) {
+            // Mostrar los resultados en forma de tarjetas
+            ?>
+            <!DOCTYPE html>
+                <html lang="es-MX">
+                <head>
+                    <link rel="icon" href="../controlador/ControlUtilerias/img/Unach.ico" type="image/x-icon">
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
+                    <link rel="stylesheet" href="../Bootstrap/css/style_index.css">
+                    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+                    <title>Repositorio 6°J</title>
+                    <style>
+                        .audio-container {
+                            max-width: 100%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    </style>
+                </head>
+            <section>
+            <nav class="navbar navbar-expand-lg navbar-light static-top">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-brand"><p><b>RP </b>6</p></li>
+                        <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Core/ContG.php">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Audioteca.php">Audioteca</a></li>
+                        <li class="nav-item"><a class="nav-link disable" href="Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
+                        <!-- Nuevo elemento para el formulario de búsqueda -->
+                        <li class="nav-item ml-auto">
+                        <form class="navbar-form ml-auto" action="buscar.php" method="POST">
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        </li>
+                    </ul>
+                </nav><br>
+                <div class="text-center">
+                <h1>FACULTAD DE CONTADURIA Y ADMNINISTRACION CAMPUS I</h1>
+                </div><br>
+            </section>
+            <body>
+                <!-- Contenido HTML para mostrar los resultados -->
+                <div class="container mt-4">
+                    <h1>Resultados de búsqueda para: <?php echo $keyword; ?></h1>
+                    <div class="row">
+                        <?php foreach ($resultados as $podcast) : ?>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card mb-4">
+                                    <h3 class="card-header"><?php echo $podcast['Nombre']; ?></h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Autor: <?php echo $podcast['Autor']; ?></p>
+                                        <p class="card-text">Género: <?php echo $podcast['Genero']; ?></p>
+                                        <!-- Agregar reproductor de audio -->
+                                        <div class="audio-container">
+                                            <audio controls>
+                                                <source src="<?php echo $podcast['DireccionM']; ?>" type="audio/mpeg">
+                                                Tu navegador no soporta la reproducción de audio.
+                                            </audio>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <!-- Scripts de Bootstrap -->
+                <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../Bootstrap/js/bootstrap.min.js"></script>
+            </body>
+            </html>
+            <?php
+        } else {
+            echo "No se encontraron resultados para: " . $keyword;
         }
     } catch (PDOException $e) {
         // Manejar errores de base de datos
         echo "Error al ejecutar la consulta: " . $e->getMessage();
     }
-    ?>
-    </div>
-</body>
-</html>
+} else {
+    echo "No se proporcionó ninguna palabra clave.";
+}
+?>

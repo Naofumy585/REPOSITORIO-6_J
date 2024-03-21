@@ -16,6 +16,31 @@
     }
 </style>
 <body>
+<section>
+            <nav class="navbar navbar-expand-lg navbar-light static-top">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-brand"><p><b>RP </b>6</p></li>
+                        <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContG.php">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../vistas/Audioteca.php">Audioteca</a></li>
+                        <li class="nav-item"><a class="nav-link disable" href="../vistas/Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
+                        <!-- Nuevo elemento para el formulario de búsqueda -->
+                        <li class="nav-item ml-auto">
+                        <form class="navbar-form ml-auto" action="../vistas/buscar.php" method="POST">
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        </li>
+                    </ul>
+                </nav><br>
+                <div class="text-center">
+                <h1>FACULTAD DE CONTADURIA Y ADMNINISTRACION CAMPUS I</h1>
+                </div><br>
+            </section>
 <h1>CONTRATO DE PRESTACIÓN DE SERVICIOS INFORMÁTICOS</h1>
     <p>En <strong>[Lugar]</strong>, a los <strong>[días]</strong> días del mes de <strong>[mes]</strong> de <strong>[año]</strong>, entre <strong>[Nombre Propietario]</strong>, en su carácter de propietario, con domicilio en <strong>[Dirección Propietario]</strong>, en adelante denominado "EL PROPIETARIO", por una parte, y <strong>[Nombre de quien solicita el servicio]</strong>, con domicilio en <strong>[Dirección Cliente]</strong>, en adelante denominado "EL CLIENTE", por la otra parte, celebran el presente CONTRATO DE PRESTACIÓN DE SERVICIOS INFORMÁTICOS, de conformidad con las siguientes cláusulas:</p>
 

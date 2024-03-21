@@ -23,10 +23,21 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto nav justify-content-end">
                             <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">OTROS TEMAS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">PODCAST</a></li>
+                            <li class="nav-item"><a class="nav-link" href="PDF.php">OTROS TEMAS</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Audioteca.php">PODCAST</a></li>
+                            <li class="nav-item"><a class="nav-link disable" href="Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
+                            <!-- Nuevo elemento para el formulario de búsqueda -->
+                            <li class="nav-item ml-auto">
+                                <form class="navbar-form ml-auto" action="buscar.php" method="POST">
+                                    <div class="input-group">
+                                        <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                            </div>
+                                        </div>
+                                </form>
+                            </li>
                             <li class="nav-item"><a class="nav-link active" href="./Contratos/Contrato.php">Generar Contrato</a></li>
-                            <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contacto</a></li>
                         </ul>
                     </div>
                 </div>

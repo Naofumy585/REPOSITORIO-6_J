@@ -14,12 +14,12 @@
         <ul class="navbar-nav ml-auto">
             <li class="navbar-brand"><p><b>RP </b>6</p></li>
             <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+            <li class="nav-item"><a class="nav-link" href="Audioteca.php">Acerca de</a></li>
             <li class="nav-item"><a class="nav-link" href="añadirP.php">Añadir Contenido</a></li>
-            <li class="nav-item"><a class="nav-link disable" href="buscar.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
-            <!-- Nuevo elemento para el formulario de búsqueda -->
-            <li class="nav-item ml-auto">
-                <form class="navbar-form ml-auto" action="../Core/GContrato.php" method="GET">
+            <li class="nav-item"><a class="nav-link disable" href="Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
+                <!-- Nuevo elemento para el formulario de búsqueda -->
+                <li class="nav-item ml-auto">
+                    <form class="navbar-form ml-auto" action="buscar.php" method="POST">
                     <div class="input-group">
                         <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search" name="query">
                         <div class="input-group-append">
