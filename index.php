@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="Caja">
-                                    <a href="./src/vistas/PFD.php" class="card-link">
+                                    <a href="./src/vistas/Audioteca.php" class="card-link">
                                         <table class="table table-bordered">
                                             <tbody>
                                                 <tr>
@@ -116,11 +116,14 @@
                                                     </td>
                                                     <td>
                                                         <div class="card-content">
-                                                            <h5 class="card-title"><b>Redes y enrutadores</b></h5>
-                                                            <p class="card-text">By <b>#</b></p>
+                                                            <h5 class="card-title"><b>Trámite ante el INDAUTOR de un programa de computación</b></h5>
+                                                            <p class="card-text"> <b>CONACYT & INFOTEC</b></p>
                                                         </div>
                                                         <div class="card-text-hover">
-                                                            <p class="card-text">Otra reseña aquí...</p>
+                                                            <h5><b>Registro de sofware ante el INDAUTOR</b></h5>
+                                                            <p class="card-text" style="text-align: justify;"> ¿Qué es indautor y cuál es su función?
+                                                            Busca dar certeza y seguridad jurídica a los usuarios sobre la protección de sus
+                                                             derechos de autor y derechos conexos, así como su difusión</p>
                                                         </div>
                                                     </td>
                                                 </tr>

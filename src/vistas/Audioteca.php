@@ -108,10 +108,19 @@
                 echo 'Tu navegador no soporta la reproducción de audio.';
                 echo '</audio>';
                 echo '</div>'; // Cierre de audio-container
+                
+                // Verificar si hay una URL de Spotify disponible
+                if (!empty($audio['URL'])) {
+                    // Mostrar el reproductor de Spotify
+                    echo '<div class="spotify-container">';
+                    echo '<iframe src="' . $audio['URL'] . '" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+                    echo '</div>'; // Cierre de spotify-container
+                }
+                
                 echo '</div>'; // Cierre de card-body
                 echo '</div>'; // Cierre de card
                 echo '</div>'; // Cierre de col-md-6
-            }
+            }            
             ?>
         </div>
     </div>

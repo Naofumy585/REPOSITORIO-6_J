@@ -8,7 +8,7 @@ if(isset($_POST['query'])) {
     // Reemplaza esta sección con tu código existente para obtener los resultados
 
     // Ejemplo de consulta SQL para buscar en la tabla t_podcastm
-    $sql = "SELECT Nombre, Genero, Autor, PalabraClave, DireccionM FROM t_podcastm 
+    $sql = "SELECT Nombre, Genero, Autor, PalabraClave, DireccionM, URL FROM t_podcastm 
             WHERE LOWER(Nombre) LIKE LOWER(:query)
             OR LOWER(Autor) LIKE LOWER(:query)";
 
@@ -32,24 +32,27 @@ if(isset($_POST['query'])) {
             // Mostrar los resultados en forma de tarjetas
             ?>
             <!DOCTYPE html>
-                <html lang="es-MX">
-                <head>
-                    <link rel="icon" href="../controlador/ControlUtilerias/img/Unach.ico" type="image/x-icon">
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
-                    <link rel="stylesheet" href="../Bootstrap/css/style_index.css">
-                    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
-                    <title>Repositorio 6°J</title>
-                    <style>
-                        .audio-container {
-                            max-width: 100%;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                        }
-                    </style>
-                </head>
+            <html lang="es-MX">
+            <head>
+                <link rel="icon" href="../controlador/ControlUtilerias/img/Unach.ico" type="image/x-icon">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pomperrier&display=swap">
+                <link rel="stylesheet" href="../Bootstrap/css/style_index.css">
+                <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+                <title>Repositorio 6°J</title>
+                <style>
+                    .audio-container {
+                        max-width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .spotify-container {
+                        margin-top: 10px;
+                    }
+                </style>
+            </head>
             <section>
             <nav class="navbar navbar-expand-lg navbar-light static-top">
                     <ul class="navbar-nav ml-auto">
@@ -94,6 +97,12 @@ if(isset($_POST['query'])) {
                                                 Tu navegador no soporta la reproducción de audio.
                                             </audio>
                                         </div>
+                                        <!-- Verificar si hay un URL de Spotify y mostrar el reproductor -->
+                                        <?php if (!empty($podcast['URL'])) : ?>
+                                            <div class="spotify-container">
+                                                <iframe src="<?php echo $podcast['URL']; ?>" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -108,12 +117,22 @@ if(isset($_POST['query'])) {
             <?php
         } else {
             echo "No se encontraron resultados para: " . $keyword;
+            // Mostrar mensaje emergente con botón de aceptar y redireccionar a buscar.php
+            ?>
+            <script>
+                alert("No se encontraron resultados para: <?php echo $keyword; ?>");
+                window.location.href = "../../index.php";
+            </script>
+            <?php
         }
     } catch (PDOException $e) {
         // Manejar errores de base de datos
         echo "Error al ejecutar la consulta: " . $e->getMessage();
+        ?>
+    <script>
+        window.location.href = "../../index.php";
+    </script>
+    <?php
     }
-} else {
-    echo "No se proporcionó ninguna palabra clave.";
-}
+} 
 ?>

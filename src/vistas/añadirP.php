@@ -76,8 +76,8 @@
                                 <input type="text" id="PalabraClave" name="PalabraClave" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="url">URL:</label>
-                                <input type="url" id="URl" name="URl" class="form-control">
+                                <label for="URl">URL:</label>
+                                <input type="URl" id="URl" name="URl" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary">Subir Audio</button>
                         </div>
