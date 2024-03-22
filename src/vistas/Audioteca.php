@@ -24,7 +24,7 @@
                 <li class="navbar-brand"><p><b>RP </b>6</p></li>
                 <li class="nav-item"><a class="nav-link active" href="../../index.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="Audioteca.php">Acerca de</a></li>
-                <li class="nav-item"><a class="nav-link" href="añadirP.php">Añadir Contenido</a></li>
+                <li class="nav-item"><a class="nav-link" href="anadirP.php">Añadir Contenido</a></li>
                 <li class="nav-item"><a class="nav-link disable" href="Contratosv.php" tabindex="-1" aria-disabled="true">Contratos</a></li>
                 <!-- Nuevo elemento para el formulario de búsqueda -->
                 <li class="nav-item ml-auto">

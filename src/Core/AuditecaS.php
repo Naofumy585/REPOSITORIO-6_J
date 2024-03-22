@@ -63,7 +63,7 @@ class Audios {
             }
         } elseif (isset($_POST['confirmacion']) && $_POST['confirmacion'] === 'no') {
             // Si el usuario cancela, redirigir al formulario de nuevo
-            header('Location: ../vistas/añadirP.php');
+            header('Location: ../vistas/anadirP.php');
             exit;
         }
     }    
